@@ -1,31 +1,23 @@
-<h1>Listing posts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Text</th>
-      <th>Like</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.text %></td>
-        <td><%= post.like %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<h2 align="center">:: Blog ::</h2>
+<h2>:: Posts</h2>
+<a href="/posts/admi">Ir a Pantalla Administrativa</a>
 <br>
+<br>
+  <body>
+   <% @posts.sort{ |a, b| b.created_at <=> a.created_at }.each do |post| %>
 
-<%= link_to 'New Post', new_post_path %>
+      <tr>
+        <h3><%= post.title %></h3>
+        <pre><h3><%= post.text %></h3></pre>
+        <br>
+        <b>Post subido el:</b>
+        <%= post.created_at %>
+        <br>
+        <%= post.like %>
+        <a href="/posts/like/<%= post.id %>">   Like</a>
+        <%= link_to 'Show', post %>
+        <br>
+        <br>
+    <% end %>
+  </body>
+<br>

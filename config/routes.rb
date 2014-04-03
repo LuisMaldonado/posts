@@ -1,4 +1,9 @@
 Posts::Application.routes.draw do
+  get '/posts/like2/:id' => 'posts#like2'
+  get '/posts/like/:id' => 'posts#like'
+  get '/posts/admi' => 'posts#indexadmi'
+  get '/posts/admi/new' => 'posts#new'
+  root 'posts#index'
   resources :posts
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,19 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @post.title %>
+  <h2><%= @post.title %></h2>
 </p>
 
-<p>
-  <strong>Text:</strong>
+<pre><h3>
   <%= @post.text %>
-</p>
+</h3></pre>
 
 <p>
   <strong>Like:</strong>
   <%= @post.like %>
+  <a href="/posts/like2/<%= @post.id %>">   Like</a>
 </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
