@@ -1,5 +1,7 @@
 Posts::Application.routes.draw do
+  get '/posts/comment/save/:id' => 'posts#save'
   get '/posts/like2/:id' => 'posts#like2'
+  get '/posts/comment/:id' => 'posts#comment'
   get '/posts/like/:id' => 'posts#like'
   get '/posts/admi' => 'posts#indexadmi'
   get '/posts/admi/new' => 'posts#new'

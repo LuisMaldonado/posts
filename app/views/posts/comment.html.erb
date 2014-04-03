@@ -1,0 +1,10 @@
+<h2>Nuevo comentario</h2>
+
+<form action="/posts/comment/save/<%= @post.id %>" method="get">
+
+
+          Escriba su comentario:
+          <input tyoe="text" name="review[coment]" value ="<%= @comentario.coment %>">
+          <br>
+          <input type="submit" name="commit" value="Guardar">
+  </form>

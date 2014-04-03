@@ -23,7 +23,7 @@
     <% @posts.sort{ |a, b| b.created_at <=> a.created_at }.each do |post| %>
 
       <tr>
-        <td><pre><h2><%= post.title %></pre></h2></td>
+        <td><pre><h3><%= post.title %></pre></h3></td>
         <td><%= post.text %></td>
         <td></td>
         <td></td>

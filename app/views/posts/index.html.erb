@@ -6,7 +6,7 @@
   <body>
    <% @posts.sort{ |a, b| b.created_at <=> a.created_at }.each do |post| %>
 
-      <tr>
+      <hr>
         <h3><%= post.title %></h3>
         <pre><h3><%= post.text %></h3></pre>
         <br>
@@ -16,6 +16,7 @@
         <%= post.like %>
         <a href="/posts/like/<%= post.id %>">   Like</a>
         <%= link_to 'Show', post %>
+       </hr>
         <br>
         <br>
     <% end %>

@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  protect_from_forgery with: :exception
+  skip_before_filter :verify_authenticity_token
   # GET /posts
   # GET /posts.json
   def index
@@ -9,6 +10,25 @@ class PostsController < ApplicationController
 
   def indexadmi
     @posts=Post.all
+  end
+
+  def save
+    @post=Post.find(params[:id])
+    @comentario=Review.new
+    @comentario.post_id=@post.id
+    @comentario.coment = params[:review][:coment]
+    @comentario.save
+    redirect_to @post
+  end
+
+  def like
+    @posts= Post.find(params[:id])
+    if @posts.like==nil
+    @posts.like=0
+    end
+    @posts.like=@posts.like+1
+    @posts.save
+    redirect_to "/posts"
   end
 
   def like2
@@ -21,15 +41,10 @@ class PostsController < ApplicationController
     redirect_to @posts
   end
 
-  def like
-    @posts= Post.find(params[:id])
-    if @posts.like==nil
-    @posts.like=0
+  def comment
+     @post=Post.find(params[:id])
+     @comentario=Review.new
     end
-    @posts.like=@posts.like+1
-    @posts.save
-    redirect_to "/"
-  end
 
   # GET /posts/1
   # GET /posts/1.json
