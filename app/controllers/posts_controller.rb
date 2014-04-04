@@ -12,6 +12,11 @@ class PostsController < ApplicationController
     @posts=Post.all
   end
 
+  def report
+    @post=Post.all
+    @comentarios=Review.all
+  end
+
   def save
     @post=Post.find(params[:id])
     @comentario=Review.new

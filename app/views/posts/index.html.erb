@@ -3,6 +3,9 @@
 <a href="/posts/admi">Ir a Pantalla Administrativa</a>
 <br>
 <br>
+<a href="/posts/report">Reporte de todos los posts</a>
+<br>
+<br>
   <body>
    <% @posts.sort{ |a, b| b.created_at <=> a.created_at }.each do |post| %>
 

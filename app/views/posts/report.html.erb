@@ -1,0 +1,63 @@
+<h2>:: Reporte de posts</h2>
+<br>
+<br>
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th></th>
+      <th>Titulo</th>
+      <th></th>
+      <th>Fecha de Creacion</th>
+      <th></th>
+      <th>Fecha Modicacion</th>
+      <th></th>
+      <th></th>
+      <th>Cantidad de comentarios</th>
+      <th></th>
+      <th>Cantidad de likes</th>
+      <th></th>
+      <th>Cantidad de palabras</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @post.sort{ |a, b| b.created_at <=> a.created_at }.each do |post| %>
+
+      <tr>
+      	<td><%= post.id%></td>
+      	<td></td>
+        <td><%= post.title %></td>
+        <td></td>
+        <td><%= post.created_at %></td>
+        <td></td>
+        <% cont=0 %>
+        <td><%= post.updated_at%></td>
+        <td></td>
+        <% @comentarios.each do |com| %>
+        <% cont+=1 if com.post_id == post.id %>
+        <% end %>
+        <td></td>
+        <td><%= cont %></td>
+        <td></td>
+        <td><%= post.like%></td>
+        <td></td>
+        <td></td>
+        <% suma1=1 %>
+        <% suma2=1 %>
+        <% (0..post.title.length-1).each do |cont| %>
+        <% suma1+=1 if post.title[cont] == " " || post.title[cont] == '/n' %>
+        <% end %>
+        <% (0..post.text.length-1).each do |cont| %>
+        <% suma2+=1 if post.text[cont] == " " || post.text[cont] == '/n' %>
+        <% end %>
+        <% suma= suma1+suma2 %>
+        <td><%= suma %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<br>
