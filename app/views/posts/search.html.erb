@@ -1,0 +1,55 @@
+<h3>:: Busqueda</h3>
+<br>
+<% aux=[] %>
+<% @post.each do |post| %>
+<% pal=[] %>
+<% var=0 %>
+<% (0..post.text.length-1).each do |pos|%>
+<% pal[var]=post.text[pos] if post.text[pos] != " " %>
+<% var+=1 if post.text[pos]!= " " %>
+<% aux.push(post) if @palabra == ((pal.to_a)*"").gsub(",","") %>
+<% pal=[] if post.text[pos] == " " || @palabra == ((pal.to_a)*"").gsub(",","") %>
+<% end %>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Text</th>
+       <th></th>
+      <th></th>
+       <th></th>
+      <th></th>
+      <th>Likes</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% aux.each do |post| %>
+
+      <tr>
+        <td><pre><h3><%= post.title %></pre></h3></td>
+        <td><%= post.text %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= post.like %> </td>
+        <td></td>
+        <td></td>
+        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td></td>
+        <td></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<br>
+

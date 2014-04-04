@@ -9,12 +9,17 @@ class PostsController < ApplicationController
   end
 
   def indexadmi
-    @posts=Post.all
-  end
+    @posts = Post.all
+  end 
 
   def report
     @post=Post.all
     @comentarios=Review.all
+  end
+
+  def search
+    @post=Post.all
+    @palabra= params[:palabra]
   end
 
   def save
