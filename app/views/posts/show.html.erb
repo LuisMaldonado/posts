@@ -13,8 +13,11 @@
   <strong>Likes:</strong>
   <%= @post.like %>
   <a href="/posts/like2/<%= @post.id %>">   Like</a>
-</p>
-
+  <a href="/posts/dislike2/<%= @post.id %>">  Dislike</a>
+  </p>
+<b>Categoria:</b>
+<%= @post.category %>
+<br>
 <p>
 	<a href="/posts/comment/<%= @post.id %>">Comentar</a>
   <br>

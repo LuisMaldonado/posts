@@ -1,4 +1,7 @@
 Posts::Application.routes.draw do
+  get '/posts/filtrar' => 'posts#filtrar'
+  get '/posts/dislike/:id' => 'posts#dislike'
+  get '/posts/dislike2/:id' => 'posts#dislike2'
   get '/posts/search' => 'posts#search'
   get '/posts/report' => 'posts#report'
   get '/posts/comment/save/:id' => 'posts#save'

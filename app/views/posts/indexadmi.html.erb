@@ -15,6 +15,13 @@
           <input tyoe="text" name="palabra" value ="" size="100">
           <input type="submit" name="commit" value="Buscar">
 </form>
+<form action="/posts/filtrar" method="get">
+
+
+          Filtar por categoria:
+          <input tyoe="text" name="categoria" value ="" size="100">
+          <input type="submit" name="commit" value="Filtrar">
+</form>
 <hr>
 <br>
 <br>
@@ -24,6 +31,10 @@
       <th>Title</th>
       <th>Text</th>
        <th></th>
+      <th></th>
+       <th></th>
+      <th></th>
+       <th>Categoria</th>
       <th></th>
        <th></th>
       <th></th>
@@ -41,6 +52,10 @@
         <td><pre><h3><%= post.title %></pre></h3></td>
         <td><%= post.text %></td>
         <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= post.category %></td>
         <td></td>
         <td></td>
         <td></td>

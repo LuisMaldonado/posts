@@ -11,7 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140403140938) do
+ActiveRecord::Schema.define(version: 20140410182448) do
+
+  create_table "history_posts", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -19,6 +24,7 @@ ActiveRecord::Schema.define(version: 20140403140938) do
     t.integer  "like"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "category"
   end
 
   create_table "reviews", force: true do |t|

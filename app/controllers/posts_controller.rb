@@ -11,6 +11,28 @@ class PostsController < ApplicationController
   def indexadmi
     @posts = Post.all
   end 
+ 
+ def dislike
+   @posts = Post.find(params[:id])
+  if @posts.like==0 || @post.like==nil
+    @posts.like=0
+  else
+    @posts.like=@posts.like-1
+  end
+  @posts.save
+  redirect_to "/"
+ end 
+
+  def dislike2
+  @posts = Post.find(params[:id])
+  if @posts.like==0|| @post.like==nil
+    @posts.like=0
+  else
+    @posts.like=@posts.like-1
+  end
+  @posts.save
+  redirect_to @posts
+ end 
 
   def report
     @post=Post.all
@@ -20,6 +42,10 @@ class PostsController < ApplicationController
   def search
     @post=Post.all
     @palabra= params[:palabra]
+  end
+
+  def filtrar
+    @posts=Post.where("category == :categoria",categoria: params[:categoria])
   end
 
   def save
@@ -111,6 +137,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :text, :like)
+      params.require(:post).permit(:title, :text, :like, :category)
     end
 end

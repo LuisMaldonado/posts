@@ -16,8 +16,13 @@
         <b>Post subido el:</b>
         <%= post.created_at %>
         <br>
+        <b>Categoria:</b>
+        <%= post.category %>
+        <br>
         <%= post.like %>
         <a href="/posts/like/<%= post.id %>">   Like</a>
+        <a href="/posts/dislike/<%= post.id %>">  DisLike</a>
+        <br>
         <%= link_to 'Show', post %>
        </hr>
         <br>

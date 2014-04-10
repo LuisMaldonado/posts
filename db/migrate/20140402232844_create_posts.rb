@@ -4,7 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :title
       t.string :text
       t.integer :like
-
+      belongs_to :HistoryPost
       t.timestamps
     end
   end
